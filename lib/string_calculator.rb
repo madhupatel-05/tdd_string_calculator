@@ -4,11 +4,8 @@ class StringCalculator
     raise ArgumentError, "Input must be a string" unless numbers.is_a?(String)
     return 0 if numbers.empty?
 
-    # Return if Shingle Number
-    return numbers.to_i if numbers =~ /^\d+$/
-
-    # Sum any number of inputs
-    number_list = numbers.split(",").map(&:to_i)
+    # Sum any number of inputs, Split by comma or newline
+    number_list = numbers.split(/,|\n/).map(&:to_i)
     number_list.sum
   end
 end
