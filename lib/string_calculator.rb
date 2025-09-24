@@ -14,6 +14,13 @@ class StringCalculator
 
     # Sum any number of inputs, Split by comma or newline
     number_list =  numbers.split(/#{delimiter}/).map(&:to_i)
+
+    # Negative numbers check
+    negatives = number_list.select { |n| n < 0 }
+    unless negatives.empty?
+      raise ArgumentError, "negative numbers not allowed #{negatives.join(',')}"
+    end
+
     number_list.sum
   end
 end
