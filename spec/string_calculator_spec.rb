@@ -23,5 +23,12 @@ RSpec.describe StringCalculator do
         expect { calc.add(nil) }.to raise_error(ArgumentError, "Input must be a string")
       end
     end
+
+    context 'when input is a single number' do
+      it 'returns the number as integer' do
+        expect(calc.add("1")).to eq(1)
+        expect(calc.add("42")).to eq(42)
+      end
+    end
   end
 end
