@@ -1,1 +1,1 @@
-# tdd_string_calculator
+# TDD String Calculator
