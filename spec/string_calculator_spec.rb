@@ -38,6 +38,7 @@ RSpec.describe StringCalculator do
         expect(calc.add("10,20,30,40")).to eq(100)
       end
     end
+
     context 'when input contains newlines' do
       it 'returns the sum for numbers separated by commas or newlines' do
         expect(calc.add("1\n2,3")).to eq(6)
@@ -45,5 +46,14 @@ RSpec.describe StringCalculator do
         expect(calc.add("10,20\n30,10")).to eq(70)
       end
     end
+
+    context 'when input contains a custom delimiter' do
+      it 'returns the sum of numbers with the custom delimiter' do
+        expect(calc.add("//;\n1;2")).to eq(3)
+        expect(calc.add("//*\n4*5*6")).to eq(15)
+        expect(calc.add("//.\n10.20.30")).to eq(60)
+      end
+    end
+
   end
 end
