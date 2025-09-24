@@ -6,5 +6,9 @@ class StringCalculator
 
     # Return if Shingle Number
     return numbers.to_i if numbers =~ /^\d+$/
+
+    # Sum any number of inputs
+    number_list = numbers.split(",").map(&:to_i)
+    number_list.sum
   end
 end
